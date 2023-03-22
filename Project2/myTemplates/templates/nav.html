@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ContactUs</title>
+    <title>Navabr</title>
 </head>
 <body>
-    {% extends 'nav.html' %}
+    <a href=" {% url 'HomePage'  %} ">Home</a> | <a href=" {% url 'AboutPage' %}">About</a> | <a href=" {% url 'ContactPage' %}">Contact Us</a>
+
     {% block content %}
-    <h1>Contact us page</h1>
+
     {% endblock %}
+
 </body>
 </html>
