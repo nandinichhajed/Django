@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for arti in object_list %}
+<div class="article">
+  <h3><a href="">{{ arti.title }}</a></h3>
+  <p>{{ arti.desc }}</p>
+</div>
+{% endfor %}
+
+{% endblock content %}
+
+<!-- <h1>hello</h1> -->
