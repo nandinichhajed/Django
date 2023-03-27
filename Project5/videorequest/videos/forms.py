@@ -1,7 +1,7 @@
 from django import forms
 
 class VideoForm(forms.Form):
-    video_name = forms.CharField(max_field=20, 
+    video_name = forms.CharField(max_length=20, 
                                  required=False, 
                                  widget=forms.TextInput(attrs={
                                      'class': 'form-control',
