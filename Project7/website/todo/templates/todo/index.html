@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,33 +10,23 @@
 		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="./css/flatly.min.css" />
-		<link rel="stylesheet" href="./css/styles.css" />
+		<link rel="stylesheet" href="{% static 'todo/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'todo/css/styles.css' %}"  />
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-
-
 
 	</head>
 	<body>
 
 		<div class="container-fluid" id="wrapper">
-
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-4" id="content">
-					<h2>Your Todo List <i class="fas fa-pencil-alt"></i>
-
-</h2>
-
+					<h2>Your Todo List <i class="fas fa-pencil-alt"></i></h2>
 					<form action="#" method="POST" role="form">
-
 						<div class="form-group">
 							<div class="input-group">
 							  <input type="text" class="form-control" placeholder="A Django TODO" >
 							  <span class="input-group-btn">
-								  <button type="submit" class="btn btn-success" id="add-btn">Do it <i class="fas fa-check-circle"></i>
-
-</button>
+								  <button type="submit" class="btn btn-success" id="add-btn">Do it <i class="fas fa-check-circle"></i></button>
 							  </span>
 							</div>
 						</div>
@@ -53,7 +44,6 @@
 									<button type="button" class="btn btn-danger btn-block">
 										<i class="fas fa-trash-alt"></i> Assignment
 									</button>
-
 							</div>
 						</div>
 					</div>
@@ -65,13 +55,6 @@
 					</ul>
 				</div>
 			</div>
-
-
 		</div>
-
-		<!-- jQuery -->
-		<script src="./js/jquery.min.js"></script>
-		<!-- Bootstrap JavaScript -->
-		<script src="./js/bootstrap.min.js"></script>
 	</body>
 </html>
