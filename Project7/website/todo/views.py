@@ -30,7 +30,10 @@ def completeTodo(request, todo_id):
 
     return redirect('index')
 
-
 def deleteTodo(request):
     Todo.objects.filter(complete__exact=True).delete()
+    return redirect('index')
+
+def resetTodo(request):
+    Todo.objects.all().delete()
     return redirect('index')
