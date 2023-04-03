@@ -1,20 +1,21 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 
-from .models import Todo
-from .forms import TodoForms
 # Create your views here.
+from .forms import TodoForm
+from .models import Todo
+
 
 def index(request):
     mytodo = Todo.objects.order_by('id')
-    form = TodoForms()
-    context = {'mytodo':mytodo, 'form':form}
-    return render(request, "todo/index.html")
+    form = TodoForm()
+    context = { 'mytodo': mytodo, 'form': form }
+    return render(request, 'todo/index.html', context)
+
 
 @require_POST
 def addNewTodo(request):
-    form = TodoForms(request.POST)
+    form = TodoForm(request.POST)
 
     if form.is_valid():
         my_new_todo = Todo(todotext=request.POST['text'])
@@ -28,6 +29,7 @@ def completeTodo(request, todo_id):
     mytodo.save()
 
     return redirect('index')
+
 
 def deleteTodo(request):
     Todo.objects.filter(complete__exact=True).delete()
