@@ -12,13 +12,22 @@ def index(request):
     context = {'mytodo':mytodo, 'form':form}
     return render(request, "todo/index.html")
 
+@require_POST
+def addNewTodo(request):
+    form = TodoForms(request.POST)
+
+    if form.is_valid():
+        my_new_todo = Todo(todotext=request.POST['text'])
+        my_new_todo.save()
+
+    return redirect('index')
+
 def completeTodo(request, todo_id):
     mytodo = Todo.objects.get(pk=todo_id)
     mytodo.complete = True
     mytodo.save()
 
     return redirect('index')
-
 
 def deleteTodo(request):
     Todo.objects.filter(complete__exact=True).delete()
